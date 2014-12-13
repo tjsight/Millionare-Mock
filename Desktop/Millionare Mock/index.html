@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+     <script src="js/slider.js"></script>
+     <link rel="stylesheet" href="css/font-awesome.css" />
+     <link rel="stylesheet" href="css/font-awesome.min.css" />
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1></h1>
+
+  <nav class="top-navigation">
+ <div class="content">
+	<ul class="links">
+    <li>Tickets</li>
+    <li>Auditions</li>
+    <li>Get the Game</li>
+    <li>Schedule</li>
+    <li>Log in</li>
+	</ul>
+	<img class="logo" src="img/logo.png" alt="Logo Image" width="78px">
+</div>	
+ </nav>
+
+
+
+<div class="diy-slideshow">
+	<figure class="show">
+		<img src="img/1.jpg" width="100%" /><figcaption> <a href="http://www.google.com">Watch Latest Episodes</a></figcaption> 
+	</figure>
+  <figure>
+    <img src="img/2.jpg" width="100%" /><figcaption> <a href="http://www.google.com">Watch Best Moments</a></figcaption> 
+	</figure>
+	<figure>
+		<img src="img/3.jpg" width="100%" /><figcaption> <a href="http://www.google.com">Watch Older Seasons</a></figcaption> 
+	</figure>
+ 
+  <span class="prev">&laquo;</span>
+  <span class="next">&raquo;</span>
+</div>  
+
+
+<script>
+(function(){
+  
+var counter = 0, // to keep track of current slide
+    $items = document.querySelectorAll('.diy-slideshow figure'), // a collection of all of the slides, caching for performance
+    numItems = $items.length; // total number of slides
+
+// this function is what cycles the slides, showing the next or previous slide and hiding all the others
+var showCurrent = function(){
+  var itemToShow = Math.abs(counter%numItems);// uses remainder (aka modulo) operator to get the actual index of the element to show  
+  
+  // remove .show from whichever element currently has it 
+  // http://stackoverflow.com/a/16053538/2006057
+  [].forEach.call( $items, function(el){
+    el.classList.remove('show');
+  });
+  
+  // add .show to the one item that's supposed to have it
+  $items[itemToShow].classList.add('show');    
+};
+
+// add click events to prev & next buttons 
+document.querySelector('.next').addEventListener('click', function() {
+     counter++;
+     showCurrent();
+  }, false);
+
+document.querySelector('.prev').addEventListener('click', function() {
+     counter--;
+     showCurrent();
+  }, false);
+  
+})();  
+</script>
+
+
+<div class="row">
+  <div class="small-6 large-2 columns">TOP PLAYERS <p><strong>George P. (Dallas,TX) - $750,000</strong></p><p>
+  <strong>Sandra R. (Brooklyn, NY) - $500,000</strong></p></div>
+  <div class="small-9 large-8 columns"> <h1>Play along with the show</h1> <img src="img/game.jpg" width="100%"></div>
+  <div class="small-9 large-2 columns">PLAY ALONG WITH FRIENDS
+  </div>
+
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square-o fa-stack-2x"></i>
+  <i class="fa fa-facebook fa-stack-1x"></i>
+</span>
+<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+<br>
+<span class="fa-stack fa-lg">
+  <i class="fa fa-square fa-stack-2x"></i>
+  <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+</span>
+<br>
+
+
+
+
+
+
+</div>
+
+
+
+</body>
+</html>
